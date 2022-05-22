@@ -14,15 +14,15 @@
 
 Neste desafio vou criar uma **To-do** list para organizar meus objetivos de curto, médio e longo prazo.
 
-## Objetivo
+### Objetivo
 
 o projeto será responsivo, utilizarei html semântico para melhorar a acessibilidade do projeto
 
 
-## Screenshot 📷
+### Screenshot 📷
 
 
-## Tecnologias 💻
+### Tecnologias 💻
 
 - HTML 5
 - CSS
@@ -30,7 +30,7 @@ o projeto será responsivo, utilizarei html semântico para melhorar a acessibil
 - FLEXBOX
 
 
-## Meu processo 📌
+### Meu processo 📌
 
 - [x] fazer o **readme**
 - [ ] criar a **estrutura** do projeto
