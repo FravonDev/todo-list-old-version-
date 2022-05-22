@@ -5,7 +5,7 @@
 
 - [visão geral](#visão-geral)
     - [Objetivo](#objetivo)
-    - [Screenshot](#screenshot)
+    - [screenshot](#screenshot)
 - [Meu processo](#meu-processo)
     - [tecnologias utilizadas](#tecnologias)
 
@@ -19,10 +19,10 @@ Neste desafio vou criar uma **To-do** list para organizar meus objetivos de curt
 o projeto será responsivo, utilizarei html semântico para melhorar a acessibilidade do projeto
 
 
-### Screenshot 📷
+### Screenshot 
+ teasdadasd
 
-
-### Tecnologias 💻
+### Tecnologias 
 
 - HTML 5
 - CSS
@@ -30,7 +30,7 @@ o projeto será responsivo, utilizarei html semântico para melhorar a acessibil
 - FLEXBOX
 
 
-### Meu processo 📌
+## Meu processo 
 
 - [x] fazer o **readme**
 - [ ] criar a **estrutura** do projeto
