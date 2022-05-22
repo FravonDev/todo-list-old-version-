@@ -1,0 +1,13 @@
+:root{
+    --main-yellow: #ebeba2
+    --main-blue: #96e7dd
+    --main-pink: #e0b6d4
+    --secondary-brown: #6d4c23
+    --secondary-green: #234a2d
+    --secondary-red: #650d18
+}
+*{
+    /* box-sizing: border-box;
+    margin: 0;
+    padding: 0; */
+}
