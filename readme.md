@@ -4,7 +4,7 @@
 ## tabela de conteúdo 🔗
 
 - [visão geral](#visão-geral)
-    - [Objetivo](#Objetivo)
+    - [Objetivo](#objetivo)
     - [Screenshot](#screenshot)
 - [Meu processo](#meu-processo)
     - [tecnologias utilizadas](#tecnologias)
@@ -32,8 +32,8 @@ o projeto será responsivo, utilizarei html semântico para melhorar a acessibil
 
 ## Meu processo 📌
 
-[] fazer o **readme**
-[] criar a **estrutura** do projeto
-[] criar os ****scripts**
-[] **estilizar** o projeto
-[] adicionar **responsividade** ao projeto
+- [] fazer o **readme**
+- [] criar a **estrutura** do projeto
+- [] criar os ****scripts**
+- [] **estilizar** o projeto
+- [] adicionar **responsividade** ao projeto
