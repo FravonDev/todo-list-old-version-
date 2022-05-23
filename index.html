@@ -4,9 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
+    <!-- utlizar a tag meta description para melhorar o SEO da pagina -->
+    <meta name="description" content="você pode organizar suas tarefas, metas e objetivos com a todo list">
+    <title>Todo List | crie suas tarefas e metas</title>
+    <!-- include the scripts  using Defer to use scripts after html content is loaded -->
+    <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <header>
+        <!-- make the title and my links -->
+        logo To-do
+    </header>
+    <main>
+        <div class="content">
+            <div class="list-container">
+                <!-- here we will storage our periods divs -->
+                <div class="short-period">
+                    <h4 class="periods-title">Curto prazo</h4>
+                    <div class="checklist">
+                        <button>Add Task</button>
+                    </div>
+                </div>
+
+                <div class="medium-period">
+                    <h4 class="periods-title">médio prazo</h4>
+                    <div class="checklist">
+                        <button>Add Task</button>
+                    </div>
+                </div>
+
+                <div class="long-period">
+                    <h4 class="periods-title">Longo prazo</h4>
+                    <div class="checklist">
+                        <button>Add Task</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    <footer></footer>
 </body>
 </html>
