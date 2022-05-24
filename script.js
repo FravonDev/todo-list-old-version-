@@ -19,14 +19,21 @@ function addTask(button){
     newLabel.setAttribute("for", `label${countid}`)
     newLabel.innerText = newText
 
+   checkboxGroup = document.createElement('div')
+   checkboxGroup.setAttribute("class","checkboxGroup")
+
+
     console.log(newLabel)
 
+    checkboxGroup.appendChild(newCheckbox)
+    checkboxGroup.appendChild(newLabel)
 
     console.log(newCheckbox)
-    // put the new  checkbox into checklist div
-    currentChecklist.appendChild(  newCheckbox)
-    currentChecklist.appendChild(newLabel)
+    // put the new elements into checklist div
+    currentChecklist.appendChild(checkboxGroup)
+
     console.log(currentChecklist.firstChild)
+    // update the id counter
     countid++
 
 }
