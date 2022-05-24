@@ -41,7 +41,7 @@ function addTask(button){
     checkboxGroup.appendChild(newLabel)
 
     // console.log(newCheckbox)
-    // put the new elements into checklist div
+    // put the new elements into checklist div"
     currentChecklist.appendChild(checkboxGroup)
 
     console.log(currentChecklist)
