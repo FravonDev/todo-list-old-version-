@@ -17,26 +17,37 @@
     </header>
     <main>
         <div class="content">
-            <div class="list-container">
+            <div id="list-container">
                 <!-- here we will storage our periods divs -->
-                <div class="short-period">
+                <div id="short-period" class="period">
                     <h4 class="periods-title">Curto prazo</h4>
                     <div class="checklist">
-                        <button>Add Task</button>
                     </div>
+                    <!-- when button clicked add a new task  -->
+                   <div class="newTask">
+                        <input type="text" class="taskInput" name="newShortTask" id="addShortTask">
+                        <button id='button1' onclick="addTask(this)" class="buttonAdd">Add Task</button>
+                   </div>
+                    
                 </div>
 
-                <div class="medium-period">
+                <div id="medium-period" class="period">
                     <h4 class="periods-title">médio prazo</h4>
-                    <div class="checklist">
-                        <button>Add Task</button>
+                    <div class="checklist"></div>
+                    <!-- when button clicked add a new task  -->
+                    <div class="newTask">
+                        <input type="text" class="taskInput" name="newMediumTask" id="addMediumTask">
+                        <button id='button2' onclick="addTask(this)" class="buttonAdd">Add Task</button>
                     </div>
                 </div>
 
-                <div class="long-period">
+                <div id="long-period" class="period">
                     <h4 class="periods-title">Longo prazo</h4>
-                    <div class="checklist">
-                        <button>Add Task</button>
+                    <div class="checklist"></div>
+                    <!-- when button clicked add a new task  -->
+                    <div class="newTask">
+                        <input type="text" class="taskInput" name="newLongTask" id="addLongTask">
+                        <button id='button3' onclick="addTask(this)" class="buttonAdd">Add Task</button>
                     </div>
                 </div>
             </div>
