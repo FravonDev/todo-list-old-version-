@@ -33,7 +33,7 @@ o projeto será responsivo, utilizarei html semântico para melhorar a acessibil
 ## Meu processo 
 
 - [x] fazer o **readme**
-- [ ] criar a **estrutura** do projeto
-- [ ] criar os **scripts**
+- [x] criar a **estrutura** do projeto
+- [x] criar os **scripts**
 - [ ] **estilizar** o projeto
 - [ ] adicionar **responsividade** ao projeto
