@@ -1,14 +1,91 @@
+/* :root{
+    --main-yellow: #ebeba2;
+    --main-blue: #96e7dd;
+    --main-pink: #e0b6d4;
+    --secondary-brown: #6d4c23;
+    --secondary-green: #234a2d;
+    --secondary-red: #650d18;
+    --secondary-brown2:#8E5D52;
+    --secondary--brown3:#ECD6C4;
+    
+} */
 :root{
-    --main-yellow: #ebeba2
-    --main-blue: #96e7dd
-    --main-pink: #e0b6d4
-    --secondary-brown: #6d4c23
-    --secondary-green: #234a2d
-    --secondary-red: #650d18
+    --yellow-card:#feff9c;
+    --blue-card: #7afcff;
+    --pink-card: #ff7eb9;
+
+
+    --secondary-brown: #6d4c23;
+    --secondary-green: #234a2d;
+    --secondary-red: #650d18;
+    --secondary-brown2:#8E5D52;
+    --secondary--brown3:#ECD6C4;
+    
 }
 
 *{
-    /* box-sizing: border-box;
+    box-sizing: border-box;
     margin: 0;
-    padding: 0; */
+    padding: 0;
 }
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+header{
+    height: 10%;
+    border-bottom: solid 1px black;
+
+}
+footer{
+    height: 10%;
+}
+main{
+    height:80%;
+    /* border: solid 1px black; */
+}
+
+
+
+
+.content{
+    width: 100%;
+    height: 100%;
+}
+#list-container{
+    /* make a size for a while */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 300px;
+    gap: 30px;
+    align-items: center;
+    height: 100%;
+
+}
+
+#short-period{
+    background-color: var(--pink-card);
+}
+#medium-period{
+    background-color: var(--blue-card);
+}
+#long-period{
+    background: var(--yellow-card);
+}
+.period{
+    width:  30%;
+    max-width: 600px;
+    height: 100%;
+    border: solid 1px black;
+    
+}
+.newTask{
+    height: 100px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+
