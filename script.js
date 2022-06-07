@@ -58,5 +58,55 @@ let countid = 1
 
 function inputRequired(ipt){
     console.log(ipt)
-
 }
+    var mql = window.matchMedia('(max-width: 478px)');
+    mql.onchange = (e) => {
+        if (e.matches) {
+        /* the viewport is 600 pixels wide or less */
+        console.log('This is a narrow screen — less than 600px wide.')
+        // if we are in smaller screens just one element should be rendered
+        document.getElementById("short-period").style.display = "block"
+        document.getElementById("medium-period").style.display = "none"
+        document.getElementById("long-period").style.display = "none"
+       
+
+    } else {
+        /* the viewport is more than 600 pixels wide */
+        console.log('This is a wide screen — more than 600px wide.')
+        document.getElementById("short-period").style.display = "block"
+        document.getElementById("medium-period").style.display = "block"
+        document.getElementById("long-period").style.display = "block"
+    }
+    }
+    
+
+    function changeVisibility(number){
+        if (window.matchMedia("(max-width:478px)").matches) {
+            if(number == 1){
+                console.log("numero é 1")
+                document.getElementById("short-period").style.display = "block"
+                document.getElementById("medium-period").style.display = "none"
+                document.getElementById("long-period").style.display = "none"
+        
+            }else if(number == 2){
+                console.log("numero é 2")
+                document.getElementById("short-period").style.display = "none"
+                document.getElementById("medium-period").style.display = "block"
+                document.getElementById("long-period").style.display = "none"
+        
+            }else{
+                console.log("numero é 3")
+                document.getElementById("short-period").style.display = "none"
+                document.getElementById("medium-period").style.display = "none"
+                document.getElementById("long-period").style.display = "block"
+            }
+        
+        
+        
+        }else{
+            console.log("numero é 3")
+            document.getElementById("short-period").style.display = "block"
+            document.getElementById("medium-period").style.display = "block"
+            document.getElementById("long-period").style.display = "block"
+        }
+    }

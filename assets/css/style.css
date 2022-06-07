@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap');
+
 /* :root{
     --main-yellow: #ebeba2;
     --main-blue: #96e7dd;
@@ -9,6 +11,7 @@
     --secondary--brown3:#ECD6C4;
     
 } */
+
 :root{
     --yellow-card:#feff9c;
     --blue-card: #7afcff;
@@ -20,97 +23,213 @@
     --secondary-red: #650d18;
     --secondary-brown2:#8E5D52;
     --secondary--brown3:#ECD6C4;
-    
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
 }
 
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
 }
 body{
     height: 100vh;
     width: 100vw;
 }
 
-header{
-    height: 10%;
-    border-bottom: solid 1px black;
 
-}
-footer{
-    height: 10%;
-}
-main{
-    height:80%;
-    /* border: solid 1px black; */
+/* mobile screens */
+@media screen and (max-width: 478px) {
+    body{
+        background-color: red;
+    }
+    header{
+        display: none;
+    }
+    footer{
+        display: none;
+    }
+    main{
+        height:100%;
+        /* border: solid 1px black; */
+    }
+    .content{
+        width: 100%;
+        height: 100%;
+        
+    }
+    #list-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: beige;
+        width: 100%;
+        height: 100%;
+
+
+    }
+
+    .period{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #short-period{
+        background-color: var(--pink-card);
+    }
+    #medium-period{
+        background-color: var(--blue-card);
+    }
+    #long-period{
+        background: var(--yellow-card);
+    }
 }
 
-.content{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-#list-container{
-    /* make a size for a while */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    min-height: 300px;
-    gap: 30px;
-    align-items: center;
-    height: 100%;
-}
 
-#short-period{
-    background-color: var(--pink-card);
-}
-#medium-period{
-    background-color: var(--blue-card);
-}
-#long-period{
-    background: var(--yellow-card);
-}
-.period{
-    width:  30%;
-    max-width: 600px;
-    max-height: 800px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 10px;
 
-}
-.title-period{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-    height: 10%;
-}
-.title-period > h4{
-    padding: 4px;
-    border-bottom: 1px solid black;
-
-}
-.checklist{
-    display: flex;
-    flex-direction: column;
-    height: 80%;
+/* desktop and large screens */
+@media screen and (min-width: 478px) {
+    header{
+        height: 10%;
+        border-bottom: solid 1px black;
     
-}
-.newTask{
-    width: 100%; 
-    display:flex;
-    flex-direction: column;
-    align-self: flex-end;
-    border: 1px solid black;
-    opacity: 0.2;
-
-}
-
-
+    }
+    footer{
+        height: 10%;
+    }
+    main{
+        height:80%;
+        /* border: solid 1px black; */
+    }
+    
+    .content{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    #list-container{
+        /* make a size for a while */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        min-height: 300px;
+        gap: 5vw;
+        align-items: center;
+        height: 100%;
+    }
+    
+    #short-period{
+        background-color: var(--pink-card);
+    }
+    #medium-period{
+        background-color: var(--blue-card);
+    }
+    #long-period{
+        background: var(--yellow-card);
+    }
+    .period{
+        width:  30%;
+        max-width: 400px;
+        max-height: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+    
+    }
+    .title-period{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+        height: 10%;
+    }
+    .title-period > h4{
+        padding: 4px;
+        border-bottom: 1px solid black;
+    
+    }
+    .checklist{
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        height: 80%;
+        width: 100%;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        /* border: 1px solid black; */
+        padding: 0 2% 0 2%;
+     
+        
+    }
+    
+    .checkboxGroup{
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 4px;
+        align-items: baseline;
+        width: 100%;
+        vertical-align: middle;
+    
+        border: 1px solid black;
+    
+        
+    
+    }
+    .checkboxGroup label{
+        margin-left: 10px;
+        max-width: 100%;
+    
+        overflow: hidden;
+    
+        display:inline-block;
+        text-transform: uppercase;
+        float:left;
+        height: auto;
+        width: 300px;
+    
+    }
+    .newTask{
+        padding: 20px;
+        width: 100%; 
+        display:flex;
+        flex-direction: column;
+        align-self: flex-end;
+        /* opacity: 0.2; */
+        
+    
+    }
+    
+    /* styling the input and button */
+    .taskInput{
+        border: none;
+        border-bottom: 1px solid black;
+        background-color: Transparent;
+        background-repeat:no-repeat;
+     
+    
+     
+    }
+    .hidde{
+        display: none;
+    }
+    .buttonAdd{
+        align-self: center;
+        width: 60px;
+        height: 60px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 50px;
+        position: relative;
+        top: 2.6rem;
+    }
+    
+    
+ }

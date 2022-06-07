@@ -23,41 +23,47 @@
                 <!-- here we will storage our periods divs -->
                 <div id="short-period" class="period">
                     <div class="title-period">
-                        <h4 class="periods-title">Curto prazo</h4>
+                        <h4 class="periods-title">Curto Prazo</h4>
+                        <button class="hidde"  onclick="changeVisibility(1)">1</button>
+                        <button class="hidde"  onclick="changeVisibility(2)">2</button>
+                        <button class="hidde"  onclick="changeVisibility(3)">3</button>
 
                     </div>
                     <div class="checklist">
                     </div>
                     <!-- when button clicked add a new task  -->
                    <div class="newTask">
-                        <input  type="text" class="taskInput" name="newShortTask" id="addShortTask">
-                        <button id='button1' onclick="addTask(this)" class="buttonAdd">Add Task</button>
+                        <input placeholder="add Task" type="text" class="taskInput" name="newShortTask" id="addShortTask">
+                        <button id='button1' onclick="addTask(this)" class="buttonAdd">+</button>
                    </div>
                     
                 </div>
 
                 <div id="medium-period" class="period">
                     <div class="title-period">                    
-                        <h4 class="periods-title">médio prazo</h4>
-                    </div>
+                        <h4 class="periods-title">Médio Prazo</h4>
+                        <button class="hidde"  onclick="changeVisibility(1)">1</button>
+                        <button class="hidde"  onclick="changeVisibility(2)">2</button>
+                        <button class="hidde"  onclick="changeVisibility(3)">3</button>                 </div>
                     <div class="checklist"></div>
                     <!-- when button clicked add a new task  -->
                     <div class="newTask">
-                        <input type="text" class="taskInput" name="newMediumTask" id="addMediumTask">
-                        <button id='button2' onclick="addTask(this)" class="buttonAdd">Add Task</button>
+                        <input placeholder="add Task" type="text" class="taskInput" name="newMediumTask" id="addMediumTask">
+                        <button id='button2' onclick="addTask(this)" class="buttonAdd">+</button>
                     </div>
                 </div>
 
                 <div id="long-period" class="period">
                     <div class="title-period">
-                        <h4 class="periods-title">Longo prazo</h4>
-
-                    </div>
+                        <h4 class="periods-title">Longo razo</h4>
+                        <button class="hidde"  onclick="changeVisibility(1)">1</button>
+                        <button class="hidde"  onclick="changeVisibility(2)">2</button>
+                        <button class="hidde"  onclick="changeVisibility(3)">3</button>                  </div>
                     <div class="checklist"></div>
                     <!-- when button clicked add a new task  -->
                     <div class="newTask">
-                        <input type="text" class="taskInput" name="newLongTask" id="addLongTask">
-                        <button id='button3' onclick="addTask(this)" class="buttonAdd">Add Task</button>
+                        <input placeholder="add Task" type="text" class="taskInput" name="newLongTask" id="addLongTask">
+                        <button id='button3' onclick="addTask(this)" class="buttonAdd">+</button>
                     </div>
                 </div>
             </div>
