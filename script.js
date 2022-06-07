@@ -59,8 +59,21 @@ let countid = 1
 function inputRequired(ipt){
     console.log(ipt)
 }
-    var mql = window.matchMedia('(max-width: 478px)');
-    mql.onchange = (e) => {
+
+    // when page load change the number of visible cards to 1 for smaller screens
+    var mediaquery = window.matchMedia('(max-width: 478px)');
+    if (mediaquery.matches) { // If media query matches
+        document.body.style.backgroundColor = "yellow";
+        document.getElementById("short-period").style.display = "block"
+        document.getElementById("medium-period").style.display = "none"
+        document.getElementById("long-period").style.display = "none"
+
+
+      }
+
+    //  when resize the page change  number of visible cards to 1 if we are in smaller screens
+    //  and let 3 if we are in the biggest
+    mediaquery.onchange = (e) => {
         if (e.matches) {
         /* the viewport is 600 pixels wide or less */
         console.log('This is a narrow screen — less than 600px wide.')
