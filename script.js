@@ -75,16 +75,13 @@ function inputRequired(ipt){
     //  and let 3 if we are in the biggest
     mediaquery.onchange = (e) => {
         if (e.matches) {
-        /* the viewport is 600 pixels wide or less */
         console.log('This is a narrow screen — less than 600px wide.')
-        // if we are in smaller screens just one element should be rendered
         document.getElementById("short-period").style.display = "block"
         document.getElementById("medium-period").style.display = "none"
         document.getElementById("long-period").style.display = "none"
        
 
     } else {
-        /* the viewport is more than 600 pixels wide */
         console.log('This is a wide screen — more than 600px wide.')
         document.getElementById("short-period").style.display = "block"
         document.getElementById("medium-period").style.display = "block"

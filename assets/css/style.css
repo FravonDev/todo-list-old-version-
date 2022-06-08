@@ -115,6 +115,7 @@ body{
         justify-content: center;
         width: 100%;
         height: 100%;
+        border-radius: 0 0 2px 2px ;
     }
 
     .title-period{
@@ -122,22 +123,29 @@ body{
         height: 10%;
         white-space: nowrap;
         overflow: hidden;
+        text-overflow: ellipsis;
         }
         
     .periods-title{
-        overflow: hidden;
         font-size: 100%;
+        text-overflow: ellipsis;
     }
 
     .checklist{
-        border: 1px solid black;
         height: 70%;
+        padding: 1vh 1vw 1vw 1vh;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        padding-left: 5%;
+        border: solid 1px black;
+
     }
     .newTask{
         width: 100%;
         display: flex;
         flex-direction: row;
-        border: solid 1px black;
         height: 10%;
 
     }
