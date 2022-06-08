@@ -44,15 +44,31 @@ function addTask(button){
     // put the new elements into checklist div"
     currentChecklist.appendChild(checkboxGroup)
 
-    console.log(currentChecklist)
     // update the id counter
     countid++
 
     // reset the input text
     textInput.value = ""
 
+    // exclude task on tripple click
+    let groupToEcxlude = document.querySelectorAll(".checkboxGroup")
 
+    for (let i =0; i< groupToEcxlude.length; i++){
+        console.log(groupToEcxlude[i])
+        groupToEcxlude[i].addEventListener('click', function (evt) {
+            if (evt.detail === 3) {
+                this.remove();
+            }
+        });
+    }
+    
+    
 }
+
+
+
+
+
 //store the id counter
 let countid = 1
 
@@ -63,7 +79,6 @@ function inputRequired(ipt){
     // when page load change the number of visible cards to 1 for smaller screens
     var mediaquery = window.matchMedia('(max-width: 478px)');
     if (mediaquery.matches) { // If media query matches
-        document.body.style.backgroundColor = "yellow";
         document.getElementById("short-period").style.display = "block"
         document.getElementById("medium-period").style.display = "none"
         document.getElementById("long-period").style.display = "none"
@@ -75,7 +90,6 @@ function inputRequired(ipt){
     //  and let 3 if we are in the biggest
     mediaquery.onchange = (e) => {
         if (e.matches) {
-        console.log('This is a narrow screen — less than 600px wide.')
         document.getElementById("short-period").style.display = "block"
         document.getElementById("medium-period").style.display = "none"
         document.getElementById("long-period").style.display = "none"
@@ -120,3 +134,5 @@ function inputRequired(ipt){
             document.getElementById("long-period").style.display = "block"
         }
     }
+
+    
