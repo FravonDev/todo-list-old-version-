@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap');
 
 /* :root{
@@ -16,6 +17,7 @@
     --yellow-card:#feff9c;
     --blue-card: #7afcff;
     --pink-card: #ff7eb9;
+    --btn-add-color:#faf6f5;
 
 
     --secondary-brown: #6d4c23;
@@ -24,7 +26,10 @@
     --secondary-brown2:#8E5D52;
     --secondary--brown3:#ECD6C4;
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
+}
+.periods-title{
+    font-family: 'Berkshire Swash', cursive;
 }
 
 *{
@@ -117,6 +122,9 @@ body{
         width: 100%;
         height: 100%;
         border-radius: 0 0 2px 2px ;
+        font-family: 'Berkshire Swash', cursive;
+        font-size: 4vw;
+
     }
 
     .title-period{
@@ -133,21 +141,20 @@ body{
     }
 
     .checklist{
-        height: 70%;
+        height: 60%;
         padding: 1vh 1vw 1vw 1vh;
         display: flex;
         flex-direction: column;
-        align-items: stretch;
+        align-items: baseline;
         justify-content: center;
-        padding-left: 5%;
-        border: solid 1px black;
+        padding-left: 28%;
 
     }
     .newTask{
         width: 100%;
         display: flex;
-        flex-direction: row;
-        height: 10%;
+        flex-direction:column;
+        height: 20%;
 
     }
     .hiddeBtn1{
@@ -162,15 +169,40 @@ body{
     }
     
     .taskInput{
-        width: 75%;
-        height: 100%;
+        width: 100%;
+        height: 50%;
 
     }
     .buttonAdd{
         width: 25%;
 
     }
+    .taskInput{
+        text-align: center;
+        border-radius: 5px;
+        border: solid 1px black;
+        margin-bottom: 4px;
+    }
 
+    .taskInput:focus{
+    }
+    .buttonAdd{
+
+        width: 100%;
+        height: 50%;
+        margin-bottom: 10px;
+        padding: 0 0 0 0;
+
+        display: block;
+        width: 100%;
+        border: none;
+        color: black;
+        border-radius: 4px;
+        cursor: pointer;
+
+
+
+    }
 
 }
 
@@ -224,10 +256,8 @@ body{
         flex-direction: column;
         align-items: center;
         border-radius: 10px;
-        border:solid 5vw white;
-        
-    
     }
+
     .title-period{
         display: flex;
         flex-direction: column;
@@ -279,7 +309,6 @@ body{
         text-transform: uppercase;
         float:left;
         height: auto;
-        width: 300px;
     
     }
     .newTask{
@@ -287,21 +316,23 @@ body{
         width: 100%; 
         display:flex;
         flex-direction: column;
-        align-self: flex-end;
+        align-self: flex-start;
         /* opacity: 0.2; */
         
     
     }
+    .period:nth-child(1){
+        background-color: red;
+    }
     
     /* styling the input and button */
     .taskInput{
+        
         border: none;
         border-bottom: 1px solid black;
         background-color: Transparent;
         background-repeat:no-repeat;
-     
-    
-     
+        
     }
     .hidde{
         display: none;
