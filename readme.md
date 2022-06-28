@@ -35,5 +35,6 @@ o projeto será responsivo, utilizarei html semântico para melhorar a acessibil
 - [x] fazer o **readme**
 - [x] criar a **estrutura** do projeto
 - [x] criar os **scripts**
-- [ ] **estilizar** o projeto
-- [ ] adicionar **responsividade** ao projeto
+- [X] **estilizar** o projeto
+- [X] adicionar **responsividade** ao projeto
+- [] armazenar em *cache*
