@@ -37,4 +37,4 @@ o projeto será responsivo, utilizarei html semântico para melhorar a acessibil
 - [x] criar os **scripts**
 - [X] **estilizar** o projeto
 - [X] adicionar **responsividade** ao projeto
-- [] armazenar em *cache*
+- [ ] armazenar em *cache*

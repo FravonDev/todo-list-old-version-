@@ -1,3 +1,101 @@
+let shortPeriod = []
+let mediumPeriod = []
+let longPeriod = []
+// localStorage.clear()
+
+verifyLocalStorage()
+
+function verifyLocalStorage(){
+    console.log('to rodando')
+
+    if (localStorage.getItem("short-period") != null) {
+        shortPeriod = [localStorage["short-period"]]
+        showData("short-period", "storedData")
+    }
+
+    if (localStorage.getItem("medium-period") != null) {
+        mediumPeriod = [localStorage["medium-period"]]
+        showData("medium-period", "storedData")
+    }
+
+    if (localStorage.getItem("long-period") != null) {
+        longPeriod = [localStorage["long-period"]]
+        showData("long-period", "storedData")
+    }
+
+}
+
+function showData(period, state="new"){
+    // console.log(state)
+    let chave = localStorage.getItem(period);
+    //convert to an array separating the values by comma(,)
+    chave = chave.split(/,(?! )/)
+    // console.log(chave)
+    // add to screen
+    let currentPeriod = document.getElementById(period);
+    let currentCheckbox = currentPeriod.querySelector(".checklist")
+    if(state == "new"){
+        // console.log('thats a new one!')
+        // console.log('ultima'+ chave[chave.length -1]);
+        // create the new checkbox element
+        newCheckbox = document.createElement("input")
+        newCheckbox.setAttribute("type","checkbox")
+        // newCheckbox.setAttribute("id", `label${countid}`)
+
+        // make a label for this checkbox
+        newLabel = document.createElement("label")
+        // newLabel.setAttribute("for", `label${countid}`)
+        // make the text content editable
+        newLabel.setAttribute("contentEditable","true")
+        newLabel.innerText = chave[chave.length -1]
+        //make a new div to group the label and the checkbox input
+        checkboxGroup = document.createElement('div')
+        checkboxGroup.setAttribute("class","checkboxGroup")
+
+        // console.log(newLabel)
+
+        checkboxGroup.appendChild(newCheckbox)
+        checkboxGroup.appendChild(newLabel)
+
+        // console.log(newCheckbox)
+        // put the new elements into checklist div"
+        currentPeriod.querySelector(".checklist").appendChild(checkboxGroup)
+        // update the id counter
+        // countid++
+
+    }else{
+        // insert each task in the screen
+        for (let i = 0 ; i < chave.length; i++){
+        // console.log(chave[i]);
+        // create the new checkbox element
+        newCheckbox = document.createElement("input")
+        newCheckbox.setAttribute("type","checkbox")
+        // newCheckbox.setAttribute("id", `label${countid}`)
+
+        // make a label for this checkbox
+        newLabel = document.createElement("label")
+        // newLabel.setAttribute("for", `label${countid}`)
+        // make the text content editable
+        newLabel.setAttribute("contentEditable","true")
+        newLabel.innerText = chave[i]
+        //make a new div to group the label and the checkbox input
+        checkboxGroup = document.createElement('div')
+        checkboxGroup.setAttribute("class","checkboxGroup")
+
+        // console.log(newLabel)
+
+        checkboxGroup.appendChild(newCheckbox)
+        checkboxGroup.appendChild(newLabel)
+
+        // console.log(newCheckbox)
+        // put the new elements into checklist div"
+        currentPeriod.querySelector(".checklist").appendChild(checkboxGroup)
+        // update the id counter
+        // countid++
+        }
+    }
+}
+
 
 
 function addTask(button){
@@ -6,66 +104,92 @@ function addTask(button){
     // get the div to make and store the new task
     let currentChecklist = buttonParent.querySelector(".checklist");
     let textInput = buttonParent.querySelector(".taskInput");
+    let currentCache = buttonParent.querySelector(".checklist");
+    
 
     if (!textInput.value){
         // disable button when input is empty
-        console.log(button)
+        console.log(button.id)
         textInput.setAttribute("placeholder", "input required")
 
         return 0;
     }
     
     let newText = textInput.value
-    // console.log(newText)
-    
-    // create the new checkbox element
-    newCheckbox = document.createElement("input")
-    newCheckbox.setAttribute("type","checkbox")
-    // newCheckbox.setAttribute("id", `label${countid}`)
 
-    // make a label for this checkbox
-    newLabel = document.createElement("label")
-    // newLabel.setAttribute("for", `label${countid}`)
-    // make the text content editable
-    newLabel.setAttribute("contentEditable","true")
-    newLabel.innerText = newText
+    //make the own cardStore variable to store the data
+    if(button.id == "button1"){
+        shortPeriod.push(newText);
+        localStorage.setItem("short-period", shortPeriod)
+        // console.log(localStorage.getItem('shortPeriod'))
+        // put the values from local storage in the screen
+        showData("short-period")
 
-    //make a new div to group the label and the checkbox input
-   checkboxGroup = document.createElement('div')
-   checkboxGroup.setAttribute("class","checkboxGroup")
+    }else if(button.id == "button2"){
+        mediumPeriod.push(newText);
+        localStorage.setItem("medium-period", mediumPeriod)
+        // console.log(localStorage.getItem('mediumPeriod'))
+        // put the values from local storage in the screen
+        showData("medium-period")
 
 
-    // console.log(newLabel)
-
-    checkboxGroup.appendChild(newCheckbox)
-    checkboxGroup.appendChild(newLabel)
-
-    // console.log(newCheckbox)
-    // put the new elements into checklist div"
-    currentChecklist.appendChild(checkboxGroup)
-
-    // update the id counter
-    countid++
-
-    // reset the input text
+    }else{
+        longPeriod.push(newText);
+        localStorage.setItem("long-period", longPeriod)
+        // console.log(localStorage.getItem('longPeriod'))            
+        // put the values from local storage in the screen
+        showData("long-period")
+    }
     textInput.value = ""
-
+    
+}
+// localStorage.clear()
     // exclude task on tripple click
-    let groupToEcxlude = document.querySelectorAll(".checkboxGroup")
-
-    for (let i =0; i< groupToEcxlude.length; i++){
-        console.log(groupToEcxlude[i])
-        groupToEcxlude[i].addEventListener('click', function (evt) {
+    let groupToExclude = document.querySelectorAll(".checkboxGroup");
+    let elementExclude;
+    
+    for (let i =0; i< groupToExclude.length; i++){
+        groupToExclude[i].addEventListener('click', function (evt) {
             if (evt.detail === 3) {
-                this.remove();
+                let parentKey = this.parentNode.parentNode.id
+                // console.log(parentKey)
+                let parentLocalStorage = localStorage.getItem(parentKey).split(/,(?! )/)
+                console.log(parentLocalStorage)
+                // get the value to exlude from local storage
+                elementExclude = this.querySelector("label").innerText
+                for(let j=0; j < parentLocalStorage.length; j++){
+                    // console.log(parentLocalStorage[j].toUpperCase()+' '+ j)
+                    // console.log(typeof elementExclude)
+
+                    if(parentLocalStorage[j].toLocaleLowerCase() === elementExclude.toLocaleLowerCase()){
+                        console.log("é")
+                        console.log(parentLocalStorage[j])
+                        // remove the element from the parentLocalStorage variable
+                        parentLocalStorage.splice(j, 1)
+                        console.log(parentLocalStorage)
+                        // store the updated values into localstorage
+                        localStorage.setItem(parentKey, parentLocalStorage);
+                   
+   
+                    }
+                }
+               
+                
+            
+                // console.log(elementExclude)
+                // console.log(localStorage[elementExclude])
+                
+                this.remove()
             }
         });
     }
     
-    
-}
-
-
+    // // store values into localStorage
+    // var names = [];
+    // names[0] = prompt("New member name?");
+    // localStorage.setItem("names", JSON.stringify(names));
+    // var storedNames = JSON.parse(localStorage.getItem("names"));
+    // console.log(storedNames)
 
 
 
@@ -134,5 +258,4 @@ function inputRequired(ipt){
             document.getElementById("long-period").style.display = "block"
         }
     }
-
-    
+   
