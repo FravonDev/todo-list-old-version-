@@ -8,17 +8,17 @@ verifyLocalStorage()
 function verifyLocalStorage(){
     console.log('to rodando')
 
-    if (localStorage.getItem("short-period") != null) {
+    if (localStorage.getItem("short-period")) {
         shortPeriod = [localStorage["short-period"]]
         showData("short-period", "storedData")
     }
 
-    if (localStorage.getItem("medium-period") != null) {
+    if (localStorage.getItem("medium-period")) {
         mediumPeriod = [localStorage["medium-period"]]
         showData("medium-period", "storedData")
     }
 
-    if (localStorage.getItem("long-period") != null) {
+    if (localStorage.getItem("long-period")) {
         longPeriod = [localStorage["long-period"]]
         showData("long-period", "storedData")
     }
