@@ -222,12 +222,12 @@ body{
         height: 40px;
         background-color:#FFF2E7;
     }
-    header{
-        
+    header,footer{
+        text-align: center;
+        padding-right: 60vw;font-family: 'Berkshire Swash', cursive;
+        font-size: 24px;
     }
-    footer{
-
-    }
+  
 
     main{
         width: 100%;
@@ -312,11 +312,9 @@ body{
         align-items: baseline;
         width: 100%;
         vertical-align: middle;
-    
-        border: 1px solid black;
 
     
-        
+
     
     }
     .checkboxGroup label{

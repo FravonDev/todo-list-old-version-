@@ -12,12 +12,12 @@
 
 ## visão geral 
 
-Neste desafio vou criar uma **To-do** list para organizar meus objetivos de curto, médio e longo prazo.
+Neste desafio vou criar uma **To-Do** list para organizar meus objetivos de curto, médio e longo prazo.
 
 ### Objetivo
 
-o projeto será responsivo, utilizarei html semântico para melhorar a acessibilidade do projeto
-
+o projeto será responsivo e salvará os dados em *cache*, ou seja, a pagina podera ser fechada sem problemas, as tarefas estarão todas lá, intactas!!
+utilizarei **HTML** semântico para melhorar a acessibilidade do projeto!! 
 
 ### Screenshot 
  teasdadasd
@@ -37,4 +37,4 @@ o projeto será responsivo, utilizarei html semântico para melhorar a acessibil
 - [x] criar os **scripts**
 - [X] **estilizar** o projeto
 - [X] adicionar **responsividade** ao projeto
-- [ ] armazenar em *cache*
+- [X] armazenar em *cache*
