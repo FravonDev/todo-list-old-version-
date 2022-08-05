@@ -64,6 +64,7 @@ body{
     footer{
         display: none;
     }
+  
     main{
         height:100%;
         /* border: solid 1px black; */
@@ -218,16 +219,16 @@ body{
         width: 100vw;
         height: 100vh;
     }
-    header,footer{
+    footer{
         height: 40px;
         background-color:#FFF2E7;
-    }
-    header,footer{
         text-align: center;
         padding-right: 60vw;font-family: 'Berkshire Swash', cursive;
         font-size: 24px;
+        
     }
-  
+
+
 
     main{
         width: 100%;
@@ -312,10 +313,6 @@ body{
         align-items: baseline;
         width: 100%;
         vertical-align: middle;
-
-    
-
-    
     }
     .checkboxGroup label{
         margin-left: 10px;
@@ -365,6 +362,53 @@ body{
         position: relative;
         top: 1.1rem;
     }
-    
-    
+
+    /* TODO */
+    header{
+        width: 100%;
+        height: 40px;
+        background-color:#FFF2E7;
+        text-align: center;
+        padding-right: 60vw;
+        font-family: 'Berkshire Swash', cursive;
+        font-size: 24px;
+ 
+        display: flex;
+        flex-direction: row;
+        /* alinhas os itens verticalmente no centro */
+        align-items:center;
+        justify-content: space-around;
+        /* dar um padding para que os elementos se destanciem do topo da pagina */
+        padding: 0 5px 0 5px;
+    }
+    .logo{
+        height: 100%;
+        width: 50%;
+        padding-right: 150px;
+        background-color: #7afcff;
+    }
+    .logoText{
+        align-self: flex-start;
+    }
+    .navigation-links{
+        display: flex;
+        flex-direction: row;
+        gap: 2vw;
+        height: 100%;
+        width: 50%;
+        align-items: center;
+        justify-content: center;
+        padding-left: 10%;
+        /* background-color:#ee710a; */
+
+    }
+    .nav-social-media{
+        font-family: 'Sarala', sans-serif;
+        color:black;
+        font-weight: 400;
+        font-size: 18px;
+    }
+    footer{
+        text-align: center;
+    }
  }

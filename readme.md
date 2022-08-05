@@ -17,7 +17,7 @@ Neste desafio vou criar uma **To-Do** list para organizar meus objetivos de curt
 ### Objetivo
 
 o projeto será responsivo e salvará os dados em *cache*, ou seja, a pagina podera ser fechada sem problemas, as tarefas estarão todas lá, intactas!!
-utilizarei **HTML** semântico para melhorar a acessibilidade do projeto!! 
+utilizarei **HTML** semântico para melhorar a **acessibilidade** e **SEO** do projeto!! 
 
 ### Screenshot 
  teasdadasd
