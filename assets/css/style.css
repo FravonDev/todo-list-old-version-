@@ -191,7 +191,7 @@ body{
     .taskInput:focus{
     }
     .buttonAdd{
-
+        
         width: 100%;
         height: 50%;
         margin-bottom: 10px;
@@ -203,8 +203,7 @@ body{
         color: black;
         border-radius: 4px;
         cursor: pointer;
-        box-shadow: ;
-
+        
 
     }
 
@@ -219,20 +218,14 @@ body{
         width: 100vw;
         height: 100vh;
     }
-    footer{
-        height: 40px;
-        background-color:#FFF2E7;
-        text-align: center;
-        padding-right: 60vw;font-family: 'Berkshire Swash', cursive;
-        font-size: 24px;
-        
+    *{
+        box-sizing: border-box;
+        border: none;
     }
-
-
 
     main{
         width: 100%;
-        height: calc(100% - 80px);
+        height: calc(100vh - 80px);
         /* border: solid 1px black; */
     }
     
@@ -301,12 +294,11 @@ body{
         padding: 0 2% 0 2%;
         position: relative;
         top: 1.2rem;
-
-     
         
     }
-    
+
     .checkboxGroup{
+
         display: flex;
         flex-direction: row;
         padding-bottom: 4px;
@@ -315,6 +307,8 @@ body{
         vertical-align: middle;
     }
     .checkboxGroup label{
+        cursor: pointer;
+
         margin-left: 10px;
         max-width: 100%;
     
@@ -326,6 +320,10 @@ body{
         height: auto;
     
     }
+    .checkboxGroup input{
+        cursor: pointer;
+    }
+    
     .newTask{
         padding: 20px;
         width: 100%; 
@@ -348,6 +346,7 @@ body{
         background-color: Transparent;
         background-repeat:no-repeat;
         
+        
     }
     .hidde{
         display: none;
@@ -360,10 +359,11 @@ body{
         border: none;
         border-radius: 50px;
         position: relative;
-        top: 1.1rem;
+        top: 1.1rem;        
+        cursor: pointer;
+
     }
 
-    /* TODO */
     header{
         width: 100%;
         height: 40px;
@@ -381,14 +381,16 @@ body{
         /* dar um padding para que os elementos se destanciem do topo da pagina */
         padding: 0 5px 0 5px;
     }
-    .logo{
+    #logo{
         height: 100%;
         width: 50%;
-        padding-right: 150px;
-        background-color: #7afcff;
+        /* padding-right: 150px; */
+        display: flex;
+        align-items: flex-start;  
+        text-align: center;
     }
-    .logoText{
-        align-self: flex-start;
+    #logoText{
+       justify-self: center;
     }
     .navigation-links{
         display: flex;
@@ -399,16 +401,58 @@ body{
         align-items: center;
         justify-content: center;
         padding-left: 10%;
-        /* background-color:#ee710a; */
+        
 
+        /* background-color:#ee710a; */
+    }
+    /* change the navigation bar style */
+    .navigation-links a{
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    }
+    /* navigation style hover animation */
+    .navigation-links a:hover, #logoText:hover{
+        background-color: var(--secondary--brown3);
+        transition: all 0.5s;
+        border-radius: 6px;
     }
     .nav-social-media{
         font-family: 'Sarala', sans-serif;
         color:black;
         font-weight: 400;
         font-size: 18px;
+        border-left: 1px solid var(--secondary--brown3);
+        border-right: 1px solid var(--secondary--brown3);
+        border-radius: 50px;
+
     }
+
     footer{
-        text-align: center;
+        height: 40px;
+        width: 100%;
+        background-color:#FFF2E7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
     }
+    
+    .text-footer{
+        width: 100%;
+        height: 100%;
+        
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+
  }
