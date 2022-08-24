@@ -25,6 +25,65 @@ function verifyLocalStorage(){
 
 }
 
+
+
+
+
+
+
+
+// localStorage.clear()
+
+function check(checkbox){
+    let currentPeriod = checkbox.parentNode.parentNode.parentNode.id;
+    console.log(currentPeriod)
+    //verify if we have or not checkbox data into localStorage
+    if (!localStorage.getItem(`checkbox${currentPeriod}`)){
+        alert('we dont have');
+        // create one if we haven't
+        // TODO
+        let checkboxIsChecked = checkbox.checked;
+        // console.log(checkboxIsChecked)
+        localStorage.setItem(`checkbox${currentPeriod}`, checkboxIsChecked);
+
+
+    }
+
+    // get a variable with all checkbox elements in the current checklist
+    let allCheckboxInCard =  document.getElementById(currentPeriod);
+    allCheckboxInCard = allCheckboxInCard.getElementsByClassName('checkboxGroup')
+    // console.log(allCheckboxInCard)
+
+    let allNewCheckbox = []
+    // iterate through this element to verify if the checkbox are not duplicated or not exists
+    for(let i = 0; i < allCheckboxInCard.length; i++){
+        // console.log(allCheckboxInCard[i].querySelector('input[type="checkbox"]').checked)
+
+        // get the state of checkbox input inside of each checkbox div
+        allNewCheckbox.push(allCheckboxInCard[i].querySelector('input[type="checkbox"]').checked)
+
+
+        // console.log(allNewCheckbox)
+    }
+    // put the new values from "allNewCheckbox" into localstorage
+    localStorage.setItem(`checkbox${currentPeriod}`, allNewCheckbox);
+
+    //take the data from localstorage
+    allCheckboxState = localStorage.getItem(`checkbox${currentPeriod}`)
+    allCheckboxState = allCheckboxState.split(/,(?! )/);
+
+    // TODO
+    allCheckboxInCard[0].checked = false
+
+    for(let j=0; j < allCheckboxState.length; j++){
+        console.log(allCheckboxState[j])
+        console.log(allCheckboxInCard[j].querySelector('input[type="checkbox"]').checked)
+
+    }
+    // now we need put the checkbox state in the screen
+}
+
+
 function showData(period, state="new"){
     let chave = localStorage.getItem(period);
     //convert to an array separating the values by comma(,)
@@ -36,6 +95,8 @@ function showData(period, state="new"){
         // create the new checkbox element
         newCheckbox = document.createElement("input")
         newCheckbox.setAttribute("type","checkbox")
+        newCheckbox.setAttribute("onclick","check(this)")
+
 
         // make a label for this checkbox
         newLabel = document.createElement("label")
@@ -57,6 +118,9 @@ function showData(period, state="new"){
         // create the new checkbox element
         newCheckbox = document.createElement("input")
         newCheckbox.setAttribute("type","checkbox")
+        newCheckbox.setAttribute("onclick","check(this)")
+
+
 
         // make a label for this checkbox
         newLabel = document.createElement("label")
