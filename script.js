@@ -25,13 +25,6 @@ function verifyLocalStorage(){
 
 }
 
-
-
-
-
-
-
-
 // localStorage.clear()
 
 function check(checkbox){
@@ -49,7 +42,7 @@ function check(checkbox){
 
     }
 
-    // get a variable with all checkbox elements in the current checklist
+    // get all checkbox elements in the current checklist
     let allCheckboxInCard =  document.getElementById(currentPeriod);
     allCheckboxInCard = allCheckboxInCard.getElementsByClassName('checkboxGroup')
     // console.log(allCheckboxInCard)
@@ -73,12 +66,21 @@ function check(checkbox){
     allCheckboxState = allCheckboxState.split(/,(?! )/);
 
     // TODO
-    allCheckboxInCard[0].checked = false
 
-    for(let j=0; j < allCheckboxState.length; j++){
+    for(let j = 0; j < allCheckboxState.length; j++){
+        if(checkbox == allCheckboxInCard[j].querySelector('input[type="checkbox"]')){
+            console.log('é')
+            console.log(allCheckboxInCard[j].querySelector('input[type="checkbox"]').value)
+            if(allCheckboxInCard === 'false'){
+                allCheckboxInCard[j].querySelector('input[type="checkbox"]').value = 'no'
+                
+            }
+            else{
+                allCheckboxInCard[j].querySelector('input[type="checkbox"]').value = 'yes'
+            }
+        }
         console.log(allCheckboxState[j])
-        console.log(allCheckboxInCard[j].querySelector('input[type="checkbox"]').checked)
-
+        // console.log(allCheckboxInCard[j].querySelector('input[type="checkbox"]'), checkbox)
     }
     // now we need put the checkbox state in the screen
 }
