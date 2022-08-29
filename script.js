@@ -6,6 +6,8 @@ let longPeriod = []
 verifyLocalStorage()
 
 function verifyLocalStorage(){
+    // verify the label
+
     console.log('to rodando')
 
     if (localStorage.getItem("short-period")) {
@@ -23,6 +25,19 @@ function verifyLocalStorage(){
         showData("long-period", "storedData")
     }
 
+    // verify the checkbox
+    cardsToBeVerified = ['short-period','medium-period','long-period']
+    for (let i = 0; i < cardsToBeVerified.length;i++){
+
+        console.log(cardsToBeVerified[i])
+        let theFirsTelement = document.querySelector(`#${cardsToBeVerified[i]}`)
+        theFirsTelement = theFirsTelement.querySelector('input[type="checkbox"]')
+        console.log(theFirsTelement)
+
+        check(theFirsTelement)
+        
+    }
+ 
 }
 
 // localStorage.clear()
@@ -47,6 +62,7 @@ function check(checkbox){
     allCheckboxInCard = allCheckboxInCard.getElementsByClassName('checkboxGroup')
     // console.log(allCheckboxInCard)
 
+    //local to store only the state of each checkbox
     let allNewCheckbox = []
     // iterate through this element to verify if the checkbox are not duplicated or not exists
     for(let i = 0; i < allCheckboxInCard.length; i++){
@@ -65,22 +81,19 @@ function check(checkbox){
     allCheckboxState = localStorage.getItem(`checkbox${currentPeriod}`)
     allCheckboxState = allCheckboxState.split(/,(?! )/);
 
-    // TODO
-
     for(let j = 0; j < allCheckboxState.length; j++){
+        // verify if selected checkbox is the same of this especific "j" element
         if(checkbox == allCheckboxInCard[j].querySelector('input[type="checkbox"]')){
-            console.log('é')
+            console.log('is the same')
             console.log(allCheckboxInCard[j].querySelector('input[type="checkbox"]').value)
-            if(allCheckboxInCard === 'false'){
-                allCheckboxInCard[j].querySelector('input[type="checkbox"]').value = 'no'
-                
+            if(allCheckboxInCard == 'false'){
+                allCheckboxInCard[j].querySelector('input[type="checkbox"]').checked = true
             }
             else{
-                allCheckboxInCard[j].querySelector('input[type="checkbox"]').value = 'yes'
+                allCheckboxInCard[j].querySelector('input[type="checkbox"]').checked = false
             }
         }
         console.log(allCheckboxState[j])
-        // console.log(allCheckboxInCard[j].querySelector('input[type="checkbox"]'), checkbox)
     }
     // now we need put the checkbox state in the screen
 }
@@ -264,9 +277,7 @@ function inputRequired(ipt){
                 document.getElementById("medium-period").style.display = "none"
                 document.getElementById("long-period").style.display = "block"
             }
-        
-        
-        
+
         }else{
             document.getElementById("short-period").style.display = "block"
             document.getElementById("medium-period").style.display = "block"
