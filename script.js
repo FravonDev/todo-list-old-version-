@@ -29,73 +29,92 @@ function verifyLocalStorage(){
     cardsToBeVerified = ['short-period','medium-period','long-period']
     for (let i = 0; i < cardsToBeVerified.length;i++){
 
-        console.log(cardsToBeVerified[i])
+        // console.log(cardsToBeVerified[i])
         let theFirsTelement = document.querySelector(`#${cardsToBeVerified[i]}`)
-        theFirsTelement = theFirsTelement.querySelector('input[type="checkbox"]')
-        console.log(theFirsTelement)
+        // verify if this checkbox have some checkbox
+        if(theFirsTelement.querySelector('input[type="checkbox"]')){
 
-        check(theFirsTelement)
-        
+            theFirsTelement = theFirsTelement.querySelector('input[type="checkbox"]')
+            console.log(theFirsTelement)
+            check(theFirsTelement, 'old')
+            
     }
+}
  
+
+    
+
+    
 }
 
 // localStorage.clear()
-
-function check(checkbox){
+function check(checkbox, state='new'){
     let currentPeriod = checkbox.parentNode.parentNode.parentNode.id;
     console.log(currentPeriod)
     //verify if we have or not checkbox data into localStorage
     if (!localStorage.getItem(`checkbox${currentPeriod}`)){
         alert('we dont have');
         // create one if we haven't
-        // TODO
         let checkboxIsChecked = checkbox.checked;
         // console.log(checkboxIsChecked)
         localStorage.setItem(`checkbox${currentPeriod}`, checkboxIsChecked);
-
-
     }
-
     // get all checkbox elements in the current checklist
     let allCheckboxInCard =  document.getElementById(currentPeriod);
     allCheckboxInCard = allCheckboxInCard.getElementsByClassName('checkboxGroup')
     // console.log(allCheckboxInCard)
+
+
+
 
     //local to store only the state of each checkbox
     let allNewCheckbox = []
     // iterate through this element to verify if the checkbox are not duplicated or not exists
     for(let i = 0; i < allCheckboxInCard.length; i++){
         // console.log(allCheckboxInCard[i].querySelector('input[type="checkbox"]').checked)
-
         // get the state of checkbox input inside of each checkbox div
         allNewCheckbox.push(allCheckboxInCard[i].querySelector('input[type="checkbox"]').checked)
-
-
-        // console.log(allNewCheckbox)
+        
     }
-    // put the new values from "allNewCheckbox" into localstorage
+    // console.log(allNewCheckbox)
+    // TODO
+    // Verify if the value is new or old
+
+    // if is a old value just load thoses values
+    if (state != 'new'){
+        // console.log(state)
+
+      // put the new values from "allNewCheckbox" into localstorage
+
+      //take the data from localstorage
+      allCheckboxState = localStorage.getItem(`checkbox${currentPeriod}`)
+      allCheckboxState = allCheckboxState.split(/,(?! )/);
+      // console.log(allCheckboxInCard)
+    //   console.log(allCheckboxState)
+
+      for(let j = 0; j < allCheckboxInCard.length; j++){
+          // verify if selected checkbox is the same of this especific "j" element
+          console.log(allCheckboxState[j], allCheckboxInCard[j].firstChild.checked)
+          // iterate by all elements
+          if (`${allCheckboxState[j]}` == 'true'){
+            allCheckboxInCard[j].firstChild.checked = true
+
+          }
+          else{
+            allCheckboxInCard[j].firstChild.checked = false
+
+          }
+
+          //por cada elemento, atribuir a ele, seu correspondente na local storage
+
+          // console.log(allCheckboxState[j])
+      }
+      // now we need put the checkbox state in the screen   
+      return 0;
+    }
+    // if's a new value just update
     localStorage.setItem(`checkbox${currentPeriod}`, allNewCheckbox);
 
-    //take the data from localstorage
-    allCheckboxState = localStorage.getItem(`checkbox${currentPeriod}`)
-    allCheckboxState = allCheckboxState.split(/,(?! )/);
-
-    for(let j = 0; j < allCheckboxState.length; j++){
-        // verify if selected checkbox is the same of this especific "j" element
-        if(checkbox == allCheckboxInCard[j].querySelector('input[type="checkbox"]')){
-            console.log('is the same')
-            console.log(allCheckboxInCard[j].querySelector('input[type="checkbox"]').value)
-            if(allCheckboxInCard == 'false'){
-                allCheckboxInCard[j].querySelector('input[type="checkbox"]').checked = true
-            }
-            else{
-                allCheckboxInCard[j].querySelector('input[type="checkbox"]').checked = false
-            }
-        }
-        console.log(allCheckboxState[j])
-    }
-    // now we need put the checkbox state in the screen
 }
 
 
