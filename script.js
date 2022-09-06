@@ -38,14 +38,11 @@ function verifyLocalStorage(){
             console.log(theFirsTelement)
             check(theFirsTelement, 'old')
             
+        }
     }
 }
- 
 
-    
 
-    
-}
 
 // localStorage.clear()
 function check(checkbox, state='new'){
@@ -118,6 +115,7 @@ function check(checkbox, state='new'){
 }
 
 
+
 function showData(period, state="new"){
     let chave = localStorage.getItem(period);
     //convert to an array separating the values by comma(,)
@@ -129,13 +127,17 @@ function showData(period, state="new"){
         // create the new checkbox element
         newCheckbox = document.createElement("input")
         newCheckbox.setAttribute("type","checkbox")
-        newCheckbox.setAttribute("onclick","check(this)")
+        newCheckbox.setAttribute("input","check(this)")
 
 
         // make a label for this checkbox
-        newLabel = document.createElement("label")
+        newLabel = document.createElement("label");
         // make the text content editable
-        newLabel.setAttribute("contentEditable","true")
+        newLabel.setAttribute("contentEditable","true");
+
+
+
+        
         newLabel.innerText = chave[chave.length -1]
         //make a new div to group the label and the checkbox input
         checkboxGroup = document.createElement('div')
@@ -157,22 +159,68 @@ function showData(period, state="new"){
 
 
         // make a label for this checkbox
-        newLabel = document.createElement("label")
+        newLabel = document.createElement("label");
         // make the text content editable
-        newLabel.setAttribute("contentEditable","true")
-        newLabel.innerText = chave[i]
+        newLabel.setAttribute("contentEditable","true");
+        console.log('here i am');
+        newLabel.setAttribute("onInput", "updateLabelText(this)");
+        newLabel.innerText = chave[i];
         //make a new div to group the label and the checkbox input
-        checkboxGroup = document.createElement('div')
-        checkboxGroup.setAttribute("class","checkboxGroup")
+        checkboxGroup = document.createElement('div');
+        checkboxGroup.setAttribute("class","checkboxGroup");
          // store the values into the div checkboxgroup
-        checkboxGroup.appendChild(newCheckbox)
-        checkboxGroup.appendChild(newLabel)
+        checkboxGroup.appendChild(newCheckbox);
+        checkboxGroup.appendChild(newLabel);
         // put the new elements into checklist div"
-        currentPeriod.querySelector(".checklist").appendChild(checkboxGroup)
+        currentPeriod.querySelector(".checklist").appendChild(checkboxGroup);
 
         }
     }
 }
+
+
+function updateLabelText(content){
+    // get the current period to get the correct elements for update.
+    let period = content.parentNode.parentNode.parentNode.id;
+    console.log(period);
+
+    // get all the values in localStorage
+    let chave = localStorage.getItem(period);
+    //convert to an array separating the values by comma(,)
+    chave = chave.split(/,(?! )/)
+    console.log(chave)
+
+    //todo
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
