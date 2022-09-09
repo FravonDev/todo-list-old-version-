@@ -1,9 +1,77 @@
 let shortPeriod = []
 let mediumPeriod = []
 let longPeriod = []
-// localStorage.clear()
 
 verifyLocalStorage()
+
+allLabels =  document.querySelectorAll(".checkboxGroup")
+
+
+
+
+for (i of allLabels) {
+    // put the event listener on each label
+    i.addEventListener("input", function() 
+    {
+    // call the udpate label function
+      updateLabelText(this.querySelector("label"));
+    }
+    );
+  }
+
+
+
+
+
+// localStorage.clear()
+function updateLabelText(content){
+    console.log('é')
+    console.log(content)
+    // get the current period to get the correct elements for update.
+    let period = content.parentNode.parentNode.parentNode.id;
+    console.log(period);
+
+    // get all the values in localStorage
+    let chave = localStorage.getItem(period);
+    //convert to an array separating the values by comma(,)
+    chave = chave.split(/,(?! )/)
+    console.log(chave)
+
+
+
+    console.log(content.innerText)
+    for (let j = 0; j < chave.length; j++){
+        // console.log(chave)
+        // get the index of the content parent element
+        var nodes = Array.prototype.indexOf.call(content, content.parentNode.parentNode)
+
+        console.log(nodes)
+
+
+
+        // if index of content element equals to chave index
+        if (j == nodes){
+            // index of content
+
+            console.log('é')
+            console.log(j)
+            console.log(nodes)
+            console.log(chave[j])
+
+            chave[j] = content.innerText;
+
+            
+        }
+
+
+        localStorage.setItem(period, chave);
+    }
+    
+
+    // todo
+    
+
+}
 
 function verifyLocalStorage(){
     // verify the label
@@ -29,6 +97,7 @@ function verifyLocalStorage(){
     cardsToBeVerified = ['short-period','medium-period','long-period']
     for (let i = 0; i < cardsToBeVerified.length;i++){
 
+
         // console.log(cardsToBeVerified[i])
         let theFirsTelement = document.querySelector(`#${cardsToBeVerified[i]}`)
         // verify if this checkbox have some checkbox
@@ -44,7 +113,7 @@ function verifyLocalStorage(){
 
 
 
-// localStorage.clear()
+
 function check(checkbox, state='new'){
     let currentPeriod = checkbox.parentNode.parentNode.parentNode.id;
     console.log(currentPeriod)
@@ -90,11 +159,14 @@ function check(checkbox, state='new'){
     //   console.log(allCheckboxState)
 
       for(let j = 0; j < allCheckboxInCard.length; j++){
+
           // verify if selected checkbox is the same of this especific "j" element
           console.log(allCheckboxState[j], allCheckboxInCard[j].firstChild.checked)
           // iterate by all elements
           if (`${allCheckboxState[j]}` == 'true'){
             allCheckboxInCard[j].firstChild.checked = true
+
+            
 
           }
           else{
@@ -105,8 +177,12 @@ function check(checkbox, state='new'){
           //por cada elemento, atribuir a ele, seu correspondente na local storage
 
           // console.log(allCheckboxState[j])
+
       }
       // now we need put the checkbox state in the screen   
+
+
+
       return 0;
     }
     // if's a new value just update
@@ -124,6 +200,7 @@ function showData(period, state="new"){
     let currentPeriod = document.getElementById(period);
     let currentCheckbox = currentPeriod.querySelector(".checklist")
     if(state == "new"){
+
         // create the new checkbox element
         newCheckbox = document.createElement("input")
         newCheckbox.setAttribute("type","checkbox")
@@ -148,7 +225,10 @@ function showData(period, state="new"){
         // put the new elements into checklist div"
         currentPeriod.querySelector(".checklist").appendChild(checkboxGroup)
 
+
     }else{
+
+
         // insert each task in the screen
         for (let i = 0 ; i < chave.length; i++){
         // create the new checkbox element
@@ -163,7 +243,8 @@ function showData(period, state="new"){
         // make the text content editable
         newLabel.setAttribute("contentEditable","true");
         console.log('here i am');
-        newLabel.setAttribute("onInput", "updateLabelText(this)");
+
+        // newLabel.setAttribute("onInput", "updateLabelText(this)");
         newLabel.innerText = chave[i];
         //make a new div to group the label and the checkbox input
         checkboxGroup = document.createElement('div');
@@ -177,51 +258,6 @@ function showData(period, state="new"){
         }
     }
 }
-
-
-function updateLabelText(content){
-    // get the current period to get the correct elements for update.
-    let period = content.parentNode.parentNode.parentNode.id;
-    console.log(period);
-
-    // get all the values in localStorage
-    let chave = localStorage.getItem(period);
-    //convert to an array separating the values by comma(,)
-    chave = chave.split(/,(?! )/)
-    console.log(chave)
-
-    //todo
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function addTask(button){
