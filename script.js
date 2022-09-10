@@ -4,26 +4,46 @@ let longPeriod = []
 
 verifyLocalStorage()
 
-allLabels =  document.querySelectorAll(".checkboxGroup")
+getlabels()
 
+// listen for changes and then update
+document.querySelectorAll(".period").forEach(element => {
+    console.log(element)
 
+    // verify ifs not empty
+    
+    element.addEventListener("change", function(){
+        console.log("houve uma mudança")
+        // call the update function foreach card
+        // loop though all the element in LocalStorage and get the last index for update
+        getlabels()
+        
+    })
+})
 
+function getlabels(){
+    var allLabels =  document.querySelectorAll(".checkboxGroup")
 
-for (i of allLabels) {
-    // put the event listener on each label
-    i.addEventListener("input", function() 
-    {
-    // call the udpate label function
-      updateLabelText(this.querySelector("label"));
-    }
-    );
+        for (i of allLabels) {
+        // put the event listener on each label
+        i.addEventListener("input", function() 
+        {
+        // call the udpate label function
+        console.log("este é o this")
+
+            console.log(this)
+            updateLabelText(this.querySelector("label"));
+        }
+        );
   }
+}
 
 
 
 
 
-// localStorage.clear()
+
+
 function updateLabelText(content){
     console.log('é')
     console.log(content)
@@ -43,19 +63,26 @@ function updateLabelText(content){
     for (let j = 0; j < chave.length; j++){
         // console.log(chave)
         // get the index of the content parent element
-        var nodes = Array.prototype.indexOf.call(content, content.parentNode.parentNode)
+        var ParentIndex = [].indexOf.call(content.parentNode.parentNode.childNodes, content.parentNode);
+          
+        console.log(ParentIndex)
 
-        console.log(nodes)
+
+        // var listOfElements = Array.prototype.slice.call(node.parentElement.children)
+        // Now it's an Array. indexInList = listOfElements.indexOf(node);
+        console.log(content.parentNode.parentNode)
 
 
 
         // if index of content element equals to chave index
-        if (j == nodes){
+        if (j == ParentIndex - 1){
             // index of content
 
-            console.log('é')
+            console.log('J Index')
             console.log(j)
-            console.log(nodes)
+            console.log('´Parent Index')
+
+            console.log(ParentIndex)
             console.log(chave[j])
 
             chave[j] = content.innerText;
