@@ -11,9 +11,8 @@ document.querySelectorAll(".period").forEach(element => {
     console.log(element)
 
     // verify ifs not empty
-    
-    element.addEventListener("change", function(){
-        console.log("houve uma mudança")
+    // verify for changes inside the element (for a update on html content)
+    element.addEventListener("DOMSubtreeModified", function(){
         // call the update function foreach card
         // loop though all the element in LocalStorage and get the last index for update
         getlabels()
@@ -22,9 +21,11 @@ document.querySelectorAll(".period").forEach(element => {
 })
 
 function getlabels(){
-    var allLabels =  document.querySelectorAll(".checkboxGroup")
+    let allLabels =  document.getElementsByClassName("checkboxGroup")
+    console.log(allLabels)
 
         for (i of allLabels) {
+
         // put the event listener on each label
         i.addEventListener("input", function() 
         {
@@ -33,18 +34,22 @@ function getlabels(){
 
             console.log(this)
             updateLabelText(this.querySelector("label"));
+            
         }
         );
   }
+
+
 }
 
 
 
 
-
+// localStorage.clear()
 
 
 function updateLabelText(content){
+
     console.log('é')
     console.log(content)
     // get the current period to get the correct elements for update.
@@ -146,7 +151,7 @@ function check(checkbox, state='new'){
     console.log(currentPeriod)
     //verify if we have or not checkbox data into localStorage
     if (!localStorage.getItem(`checkbox${currentPeriod}`)){
-        alert('we dont have');
+        // alert('we dont have');
         // create one if we haven't
         let checkboxIsChecked = checkbox.checked;
         // console.log(checkboxIsChecked)
