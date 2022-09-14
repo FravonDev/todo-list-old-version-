@@ -1,98 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- utlizar a tag meta description para melhorar o SEO da pagina -->
-    <meta name="description" content="você pode organizar suas tarefas, metas e objetivos com a todo list">
+    <meta
+      name="description"
+      content="você pode organizar suas tarefas, metas e objetivos com a todo list"
+    />
     <title>Todo List | crie suas tarefas e metas</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css" />
     <!-- include the scripts  using Defer to use scripts after html content is loaded -->
     <script src="script.js" defer></script>
-    
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <!-- make the title and my links -->
-            <div id="logo">
-                <h3 id="logoText">To-Do</h3>
-            </div>
+      <!-- make the title and my links -->
+      <div id="logo">
+        <h3 id="logoText">To-Do</h3>
+      </div>
 
-            <nav class="navigation-links">
-                <a class="nav-social-media" href="">Como usar</a>
-                <a class="nav-social-media" href="">GitHub</a>
-                <a class="nav-social-media" href="">Linkedin</a>
-                <a class="nav-social-media" href="">sobre</a>
-                
-            </nav>
-            
+      <nav class="navigation-links">
+        <a class="nav-social-media" href="">Como usar</a>
+        <a class="nav-social-media" href="">GitHub</a>
+        <a class="nav-social-media" href="">Linkedin</a>
+        <a class="nav-social-media" href="">sobre</a>
+      </nav>
     </header>
+    <meuheader> </meuheader>
     <main>
-        <div class="content">
-            <div id="list-container">
-                <!-- here we will storage our periods divs -->
-                <div id="short-period" class="period">
-                    <div class="hiddeSelect">
-                        <button class="hidde hiddeBtn1"  onclick="changeVisibility(1)">1</button>
-                        <button class="hidde hiddeBtn2"  onclick="changeVisibility(2)">2</button>
-                        <button class="hidde hiddeBtn3"  onclick="changeVisibility(3)">3</button>
-                    </div>
-                    <div class="title-period">
-                        <h4 class="periods-title">Curto Prazo</h4>
-
-
-                    </div>
-                    <div class="checklist">
-                    </div>
-                    <!-- when button clicked add a new task  -->
-                   <div class="newTask">
-                        <input placeholder="add Task" type="text" class="taskInput" name="newShortTask" id="addShortTask">
-                        <button id='button1' onclick="addTask(this)" class="buttonAdd">+</button>
-                   </div>
-                    
-                </div>
-
-                <div id="medium-period" class="period">
-                    <div class="hiddeSelect">
-                        <button class="hidde hiddeBtn1"  onclick="changeVisibility(1)">1</button>
-                        <button class="hidde hiddeBtn2"  onclick="changeVisibility(2)">2</button>
-                        <button class="hidde hiddeBtn3"  onclick="changeVisibility(3)">3</button>
-                    </div>   
-                    <div class="title-period">
-                               
-                        <h4 class="periods-title">Médio Prazo</h4></div>
-                    <div class="checklist"></div>
-                    <!-- when button clicked add a new task  -->
-                    <div class="newTask">
-                        <input placeholder="add Task" type="text" class="taskInput" name="newMediumTask" id="addMediumTask">
-                        <button id='button2' onclick="addTask(this)" class="buttonAdd">+</button>
-                    </div>
-                </div>
-
-                <div id="long-period" class="period">
-                    <div class="hiddeSelect">
-                        <button class="hidde hiddeBtn1"  onclick="changeVisibility(1)">1</button>
-                        <button class="hidde hiddeBtn2"  onclick="changeVisibility(2)">2</button>
-                        <button class="hidde hiddeBtn3"  onclick="changeVisibility(3)">3</button>
-                    </div>
-                    <div class="title-period">
-                    
-                        <h4 class="periods-title">Longo Prazo</h4></div>
-                    <div class="checklist"></div>
-                    <!-- when button clicked add a new task  -->
-                    <div class="newTask">
-                        <input placeholder="add Task" type="text" class="taskInput" name="newLongTask" id="addLongTask">
-                        <button id='button3' onclick="addTask(this)" class="buttonAdd">+</button>
-                    </div>
-                </div>
+      <div class="content">
+        <div id="list-container">
+          <!-- here we will storage our periods divs -->
+          <div id="short-period" class="period">
+            <div class="hiddeSelect">
+              <button class="hidde hiddeBtn1" onclick="changeVisibility(1)">
+                1
+              </button>
+              <button class="hidde hiddeBtn2" onclick="changeVisibility(2)">
+                2
+              </button>
+              <button class="hidde hiddeBtn3" onclick="changeVisibility(3)">
+                3
+              </button>
             </div>
-            
+            <div class="title-period">
+              <h4 class="periods-title">Curto Prazo</h4>
+            </div>
+            <div class="checklist"></div>
+            <!-- when button clicked add a new task  -->
+            <div class="newTask">
+              <input
+                placeholder="add Task"
+                type="text"
+                class="taskInput"
+                name="newShortTask"
+                id="addShortTask"
+              />
+              <button id="button1" onclick="addTask(this)" class="buttonAdd">
+                +
+              </button>
+            </div>
+          </div>
+
+          <div id="medium-period" class="period">
+            <div class="hiddeSelect">
+              <button class="hidde hiddeBtn1" onclick="changeVisibility(1)">
+                1
+              </button>
+              <button class="hidde hiddeBtn2" onclick="changeVisibility(2)">
+                2
+              </button>
+              <button class="hidde hiddeBtn3" onclick="changeVisibility(3)">
+                3
+              </button>
+            </div>
+            <div class="title-period">
+              <h4 class="periods-title">Médio Prazo</h4>
+            </div>
+            <div class="checklist"></div>
+            <!-- when button clicked add a new task  -->
+            <div class="newTask">
+              <input
+                placeholder="add Task"
+                type="text"
+                class="taskInput"
+                name="newMediumTask"
+                id="addMediumTask"
+              />
+              <button id="button2" onclick="addTask(this)" class="buttonAdd">
+                +
+              </button>
+            </div>
+          </div>
+
+          <div id="long-period" class="period">
+            <div class="hiddeSelect">
+              <button class="hidde hiddeBtn1" onclick="changeVisibility(1)">
+                1
+              </button>
+              <button class="hidde hiddeBtn2" onclick="changeVisibility(2)">
+                2
+              </button>
+              <button class="hidde hiddeBtn3" onclick="changeVisibility(3)">
+                3
+              </button>
+            </div>
+            <div class="title-period">
+              <h4 class="periods-title">Longo Prazo</h4>
+            </div>
+            <div class="checklist"></div>
+            <!-- when button clicked add a new task  -->
+            <div class="newTask">
+              <input
+                placeholder="add Task"
+                type="text"
+                class="taskInput"
+                name="newLongTask"
+                id="addLongTask"
+              />
+              <button id="button3" onclick="addTask(this)" class="buttonAdd">
+                +
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
     </main>
     <footer>
-     <a href=""><p class="text-footer">Fravon © 2022</p></a>
-       
+      <a href=""><p class="text-footer">Fravon © 2022</p></a>
     </footer>
-</body>
+  </body>
 </html>
