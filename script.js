@@ -34,27 +34,38 @@ document.querySelectorAll(".period").forEach((element) => {
   element.addEventListener("DOMSubtreeModified", function () {
     // call the update function foreach card
     // loop though all the element in LocalStorage and get the last index for update
-    console.log("É ELEMENT");
-    console.log(element);
+
     getlabels();
   });
 });
 
+// when people click in "como usar", open the modal
+let howToUse = document.querySelector(".openModal");
+
+howToUse.onclick = function () {
+  event.preventDefault();
+  modal = document.querySelector("#modal");
+  modal.classList.toggle("invisible");
+  showOrHideModal();
+};
+
+function showOrHideModal() {
+  modal = document.querySelector("#modal");
+
+  modal.onclick = function () {
+    modal.classList.toggle("invisible");
+  };
+}
+
 function getlabels() {
   let allLabels = document.getElementsByClassName("checkboxGroup");
-  console.log(allLabels);
 
   for (label of allLabels) {
     // put the event listener on each label
     label.addEventListener("input", function () {
       // call the udpate label function
-      console.log("este é o this");
 
-      console.log(this);
       updateLabelText(this.querySelector("label"));
-      console.log("É ISSO AI");
-
-      console.log(this.querySelector("label"));
     });
   }
 }
@@ -62,43 +73,28 @@ function getlabels() {
 // localStorage.clear()
 
 function updateLabelText(content) {
-  console.log("é");
-  console.log(content);
   // get the current period to get the correct elements for update.
   let period = content.parentNode.parentNode.parentNode.id;
-  console.log(period);
 
   // get all the values in localStorage
   let chave = localStorage.getItem(period);
   //convert to an array separating the values by comma(,)
   chave = chave.split(/,(?! )/);
-  console.log(chave);
 
   console.log(content.innerText);
   for (let j = 0; j < chave.length; j++) {
-    // console.log(chave)
     // get the index of the content parent element
     var ParentIndex = [].indexOf.call(
       content.parentNode.parentNode.childNodes,
       content.parentNode
     );
 
-    console.log(ParentIndex);
-
     // var listOfElements = Array.prototype.slice.call(node.parentElement.children)
     // Now it's an Array. indexInList = listOfElements.indexOf(node);
-    console.log(content.parentNode.parentNode);
 
     // if index of content element equals to chave index
     if (j == ParentIndex) {
       // index of content
-
-      console.log("J Index");
-      console.log(j);
-      console.log("´Parent Index");
-
-      console.log(ParentIndex);
-      console.log(chave[j]);
 
       chave[j] = content.innerText;
     }
@@ -111,8 +107,6 @@ function updateLabelText(content) {
 
 function verifyLocalStorage() {
   // verify the label
-
-  console.log("to rodando");
 
   if (localStorage.getItem("short-period")) {
     shortPeriod = [localStorage["short-period"]];
@@ -132,12 +126,10 @@ function verifyLocalStorage() {
   // verify the checkbox
   cardsToBeVerified = ["short-period", "medium-period", "long-period"];
   for (let i = 0; i < cardsToBeVerified.length; i++) {
-    // console.log(cardsToBeVerified[i])
     let theFirsTelement = document.querySelector(`#${cardsToBeVerified[i]}`);
     // verify if this checkbox have some checkbox
     if (theFirsTelement.querySelector('input[type="checkbox"]')) {
       theFirsTelement = theFirsTelement.querySelector('input[type="checkbox"]');
-      console.log(theFirsTelement);
       check(theFirsTelement, "old");
     }
   }
@@ -145,49 +137,37 @@ function verifyLocalStorage() {
 
 function check(checkbox, state = "new") {
   let currentPeriod = checkbox.parentNode.parentNode.parentNode.id;
-  console.log(currentPeriod);
   //verify if we have or not checkbox data into localStorage
   if (!localStorage.getItem(`checkbox${currentPeriod}`)) {
     // alert('we dont have');
     // create one if we haven't
     let checkboxIsChecked = checkbox.checked;
-    // console.log(checkboxIsChecked)
     localStorage.setItem(`checkbox${currentPeriod}`, checkboxIsChecked);
   }
   // get all checkbox elements in the current checklist
   let allCheckboxInCard = document.getElementById(currentPeriod);
   allCheckboxInCard = allCheckboxInCard.getElementsByClassName("checkboxGroup");
-  // console.log(allCheckboxInCard)
 
   //local to store only the state of each checkbox
   let allNewCheckbox = [];
   // iterate through this element to verify if the checkbox are not duplicated or not exists
   for (let i = 0; i < allCheckboxInCard.length; i++) {
-    // console.log(allCheckboxInCard[i].querySelector('input[type="checkbox"]').checked)
     // get the state of checkbox input inside of each checkbox div
     allNewCheckbox.push(
       allCheckboxInCard[i].querySelector('input[type="checkbox"]').checked
     );
   }
-  // console.log(allNewCheckbox)
-  // TODO
   // Verify if the value is new or old
 
   // if is a old value just load thoses values
   if (state != "new") {
-    // console.log(state)
-
     // put the new values from "allNewCheckbox" into localstorage
-
     //take the data from localstorage
     allCheckboxState = localStorage.getItem(`checkbox${currentPeriod}`);
     allCheckboxState = allCheckboxState.split(/,(?! )/);
-    // console.log(allCheckboxInCard)
-    //   console.log(allCheckboxState)
 
     for (let j = 0; j < allCheckboxInCard.length; j++) {
       // verify if selected checkbox is the same of this especific "j" element
-      console.log(allCheckboxState[j], allCheckboxInCard[j].firstChild.checked);
       // iterate by all elements
       if (`${allCheckboxState[j]}` == "true") {
         allCheckboxInCard[j].firstChild.checked = true;
@@ -195,9 +175,7 @@ function check(checkbox, state = "new") {
         allCheckboxInCard[j].firstChild.checked = false;
       }
 
-      //por cada elemento, atribuir a ele, seu correspondente na local storage
-
-      // console.log(allCheckboxState[j])
+      //by each element, set this element, to this correspondent element in local storage
     }
     // now we need put the checkbox state in the screen
 
@@ -246,7 +224,6 @@ function showData(period, state = "new") {
       newLabel = document.createElement("label");
       // make the text content editable
       newLabel.setAttribute("contentEditable", "true");
-      console.log("here i am");
 
       // newLabel.setAttribute("onInput", "updateLabelText(this)");
       newLabel.innerText = chave[i];
@@ -263,7 +240,7 @@ function showData(period, state = "new") {
 }
 
 function addTask(button) {
-    debugger
+  debugger;
   // get the parent element
   let buttonParent = button.parentNode.parentNode;
   // get the div to make and store the new task
@@ -273,7 +250,6 @@ function addTask(button) {
 
   if (!textInput.value) {
     // disable button when input is empty
-    console.log(button.id);
     textInput.setAttribute("placeholder", "input required");
     return 0;
   }
@@ -310,7 +286,6 @@ for (let i = 0; i < groupToExclude.length; i++) {
       let parentKey = this.parentNode.parentNode.id;
       // find the respective Period
       let parentLocalStorage = localStorage.getItem(parentKey).split(/,(?! )/);
-      console.log(parentLocalStorage);
       // get the value to remove from local storage
       elementExclude = this.querySelector("label").innerText;
       for (let j = 0; j < parentLocalStorage.length; j++) {
@@ -319,10 +294,8 @@ for (let i = 0; i < groupToExclude.length; i++) {
           parentLocalStorage[j].toLocaleLowerCase() ===
           elementExclude.toLocaleLowerCase()
         ) {
-          console.log(parentLocalStorage[j]);
           // remove the element from the parentLocalStorage variable
           parentLocalStorage.splice(j, 1);
-          console.log(parentLocalStorage);
           // store the updated values into localstorage
           localStorage.setItem(parentKey, parentLocalStorage);
         }

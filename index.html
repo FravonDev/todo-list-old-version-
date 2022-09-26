@@ -4,17 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <!-- utlizar a tag meta description para melhorar o SEO da pagina -->
     <meta
       name="description"
       content="você pode organizar suas tarefas, metas e objetivos com a todo list"
     />
+    <!-- load the favicon  -->
+    <link type="image/png" sizes="16x16" rel="icon" href="https://img.icons8.com/emoji/15/000000/check-mark-emoji.png">
     <title>Todo List | crie suas tarefas e metas</title>
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />    
     <!-- include the scripts  using Defer to use scripts after html content is loaded -->
     <script src="script.js" defer></script>
+
+
   </head>
   <body>
+    <div id="modal" class="invisible modal">
+      <div class="modalBox">
+        <a href="#"  class="close" tabindex="0" role="button">close</a>
+
+        <h1>como usar?</h1>
+        <p>Digite uma tarefa clicando no campo "add task" :)
+        <br>ps. Clique em qualquer lugar para fechar esta janela.
+
+        </p>
+      </div>
+    </div>
+    <div class="fundo"></div>
     <header>
       <!-- make the title and my links -->
       <div id="logo">
@@ -22,13 +39,12 @@
       </div>
 
       <nav class="navigation-links">
-        <a class="nav-social-media" href="">Como usar</a>
-        <a class="nav-social-media" href="">GitHub</a>
-        <a class="nav-social-media" href="">Linkedin</a>
-        <a class="nav-social-media" href="">sobre</a>
+        <a class="nav-social-media openModal" href="">Como usar</a>
+        <a target="_blank" class="nav-social-media" href="https://github.com/flavinpv">GitHub</a>
+        <a target="_blank" class="nav-social-media" href="https://www.linkedin.com/in/flavioadriano/">Linkedin</a>
+        <a target="_blank" class="nav-social-media" href="https://github.com/flavinpv/todo-list">sobre</a>
       </nav>
     </header>
-    <meuheader> </meuheader>
     <main>
       <div class="content">
         <div id="list-container">
