@@ -38,6 +38,9 @@ body{
 
 /* mobile screens */
 @media screen and (max-width: 478px) {
+    body .invisible{
+        display: none;
+    }
     *{
         box-sizing: border-box;
         border: none;
@@ -141,6 +144,8 @@ body{
         align-items: baseline;
         justify-content: center;
         padding-left: 28%;
+        overflow: scroll;
+
 
     }
     .newTask{
