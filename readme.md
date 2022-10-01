@@ -4,7 +4,6 @@
 ## tabela de conteúdo 🔗
 
 - [visão geral](#visão-geral)
-    - [Objetivo](#objetivo)
     - [screenshot](#screenshot)
     - [descrição](#descrição)
 
@@ -14,14 +13,8 @@
 
 ## visão geral 
 
-Neste desafio criei  uma **To-Do** list para organizar meus objetivos de curto, médio e longo prazo.
-
-
-
-### Objetivo
-
-o projeto será responsivo e salvará os dados em *cache*, ou seja, a pagina podera ser fechada sem problemas, as tarefas estarão todas lá, intactas!!
-utilizarei **HTML** semântico para melhorar a **acessibilidade** e **SEO** do projeto!! 
+Neste desafio criei  uma **To-Do** list para organizar meus estudos e  objetivos a curto prazo, médio e longo prazo.
+fiz pensando em ter um projeto que caiba em telas bem menores e em telas mariores (responsivo) e salvará os dados em *cache*, ou seja, a pagina pode ser fechada sem problemas, as tarefas estarão todas lá, intactas, para isso utilizei LocalStorage do JavaScript!
 
 ### Screenshots
   #### Página principal:
@@ -50,7 +43,7 @@ utilizarei **HTML** semântico para melhorar a **acessibilidade** e **SEO** do p
 - FLEXBOX
 - DOM manipulation
 - LocalStorage
-- Responsive Design
+- Responsivo
 
 
 ## Meu processo 
