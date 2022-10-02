@@ -4,30 +4,32 @@
 ## tabela de conteúdo 🔗
 
 - [visão geral](#visão-geral)
-    - [Objetivo](#objetivo)
     - [screenshot](#screenshot)
+    - [descrição](#descrição)
+
 - [Meu processo](#meu-processo)
     - [tecnologias utilizadas](#tecnologias)
 
 
 ## visão geral 
 
-Neste desafio vou criar uma **To-Do** list para organizar meus objetivos de curto, médio e longo prazo.
+Neste desafio criei  uma **To-Do** list para organizar meus estudos e  objetivos a curto prazo, médio e longo prazo.
+fiz pensando em ter um projeto que caiba em telas bem menores e em telas mariores (responsivo) e salvará os dados em *cache*, ou seja, a pagina pode ser fechada sem problemas, as tarefas estarão todas lá, intactas, para isso utilizei LocalStorage do JavaScript!
 
-### Objetivo
-
-o projeto será responsivo e salvará os dados em *cache*, ou seja, a pagina podera ser fechada sem problemas, as tarefas estarão todas lá, intactas!!
-utilizarei **HTML** semântico para melhorar a **acessibilidade** e **SEO** do projeto!! 
-
-### Screenshot 
- ![image](https://user-images.githubusercontent.com/62142146/191801253-d7c51d68-b2df-4b62-b0c4-2f8cffec1ea8.png)
-
+### Screenshots
+  #### Página principal:
+![image](https://user-images.githubusercontent.com/62142146/193460901-70231c56-b752-41cb-bd73-7f0379431812.png) 
+  #### Modal:
+![image](https://user-images.githubusercontent.com/62142146/193460905-a31eac2e-a8e3-4c62-97f9-5b84f757d3f1.png)
 ### Tecnologias 
 
 - HTML 5
 - CSS
 - JAVASCRIPT
 - FLEXBOX
+- DOM manipulation
+- LocalStorage
+- Responsivo
 
 
 ## Meu processo 
