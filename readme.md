@@ -18,23 +18,9 @@ fiz pensando em ter um projeto que caiba em telas bem menores e em telas mariore
 
 ### Screenshots
   #### Página principal:
-![image](https://user-images.githubusercontent.com/62142146/192380994-7f0e6494-0220-42c8-a487-5296df33f9e1.png)
- 
- 
+![image](https://user-images.githubusercontent.com/62142146/193460901-70231c56-b752-41cb-bd73-7f0379431812.png) 
   #### Modal:
-![image](https://user-images.githubusercontent.com/62142146/192381178-cbcd7f3d-f7c9-46b3-afc9-1f3003b2455a.png)
-
-
-  #### Telas menores:
-![image](https://user-images.githubusercontent.com/62142146/192381042-dff06a4a-1718-4d71-bf82-4a8f4a7bfa31.png)
-
-![image](https://user-images.githubusercontent.com/62142146/192381626-ad7c5a84-8461-4bc3-9161-98ae2b172147.png)
-
-![image](https://user-images.githubusercontent.com/62142146/192381489-e6eee176-283a-48f9-857b-14b68a5e668d.png)
-
- 
-
-
+![image](https://user-images.githubusercontent.com/62142146/193460905-a31eac2e-a8e3-4c62-97f9-5b84f757d3f1.png)
 ### Tecnologias 
 
 - HTML 5
