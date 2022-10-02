@@ -1,16 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,500;1,300;1,400&display=swap');
 
 :root{
-    --yellow-card:#feff9c;
-    --blue-card: #7afcff;
-    --pink-card: #ff7eb9;
+    --yellow-card:#f2f3ab;
+    --blue-card: #a9f1f3;
+    --pink-card: #f89bc5;
     --btn-add-color:#faf6f5;
     --secondary-brown: #8E5D52;
+    --green-check: #92d293;
 
     
-    --secondary-green: #234a2d;
     --secondary-red: #650d18;
     --secondary-brown2:#8E5D52;
     --secondary--brown3:#ECD6C4;
@@ -19,7 +18,6 @@
     font-size: 16px;
 }
 .periods-title{
-    font-family: 'Berkshire Swash', cursive;
     font-size: 24px;
 }
 
@@ -29,24 +27,74 @@
     padding: 0;
 
 }
+a{
+    all: unset;
+    cursor: pointer;
+}
 body{
     height: 100vh;
     width: 100vw;
     background-color: #2F2325;
 }
+input[type="text"], ::placeholder{
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 16px;
+
+}
 
 
-/* mobile screens */
+.checkboxGroup label {
+    align-self: center;
+}
+/* custom checkbox */
+input[type="checkbox"] {
+    cursor: pointer;
+    appearance: none;
+    min-width: 30px;
+    min-height: 30px;
+    border: 3px solid black;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    align-self: center;
+  }
+  
+  input[type="checkbox"] {
+    border-radius: 10px;
+  }
+  
+ input[type="checkbox"]:before {
+    content: "\2714";
+    color: var(--green-check);
+    font-size: 30px;
+    width: 20px;
+    height: 50px;
+    background: transparent;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+    position: absolute;
+  }
+
+  
+   input[type="checkbox"]:checked:before {
+    opacity: 1;
+  }
+  
+  input[type="checkbox"]:focus {
+    box-shadow: 0 0 5px var(--green-check);
+  }
+
+
+/* screens with less than 478px of width */
 @media screen and (max-width: 478px) {
     body .invisible{
         display: none;
     }
-    *{
-        box-sizing: border-box;
-        border: none;
-    }
     body{
-        background-color: red;
         font-size: 16px;
 
     }
@@ -61,11 +109,16 @@ body{
         height:100%;
         /* border: solid 1px black; */
     }
+    .checkboxGroup {
+        border-bottom:1px solid rgba(0, 0, 0, 0.05);
+        padding: 10px;
+    }
     .content{
         width: 100%;
         height: 100%;
         
     }
+
     #list-container{
         display: flex;
         flex-direction: row;
@@ -74,12 +127,16 @@ body{
         width: 100%;
         height: 100%;
 
+
+
     }
 
     .period{
         display: flex;
         width: 100%;
         height: 100%;
+
+        
  
     }
     #short-period{
@@ -127,25 +184,21 @@ body{
         width: 100%;
         height: 10%;
         white-space: nowrap;
-        overflow: hidden;
         text-overflow: ellipsis;
         }
         
     .periods-title{
         font-size: 100%;
-        text-overflow: ellipsis;
     }
-
+    
     .checklist{
         height: 60%;
-        padding: 1vh 1vw 1vw 1vh;
         display: flex;
         flex-direction: column;
-        align-items: baseline;
-        justify-content: center;
         padding-left: 28%;
         overflow: scroll;
-
+        
+      
 
     }
     .newTask{
@@ -153,7 +206,6 @@ body{
         display: flex;
         flex-direction:column;
         height: 20%;
-
     }
     .hiddeBtn1{
         
@@ -165,14 +217,9 @@ body{
     .hiddeBtn3{
     background-color: var(--yellow-card);
     }
-    
     .taskInput{
         width: 100%;
         height: 50%;
-
-    }
-    .buttonAdd{
-        width: 25%;
 
     }
     .taskInput{
@@ -182,15 +229,12 @@ body{
         margin-bottom: 4px;
     }
 
-    .taskInput:focus{
-    }
     .buttonAdd{
-        
         width: 100%;
         height: 50%;
         margin-bottom: 10px;
         padding: 0 0 0 0;
-
+        
         display: block;
         width: 100%;
         border: none;
@@ -198,20 +242,17 @@ body{
         border-radius: 4px;
         cursor: pointer;
         
-
     }
 
 }
 
-
-
 /* desktop and large screens */
 @media screen and (min-width: 478px) {
-    
     body{
-        width: 100vw;
-        height: 100vh;
+        min-width: 100vw;
+        min-height: 100vh;
     }
+
     *{
         box-sizing: border-box;
         border: none;
@@ -219,7 +260,7 @@ body{
 
     main{
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 90px);
         /* border: solid 1px black; */
     }
     
@@ -236,10 +277,10 @@ body{
         justify-content: center;
         gap: 5vw;
         align-items: center;
-        height: 100%;
-        width: 100%;
+        min-height: 100%;
+        min-width: 100%;
     }
-    
+ 
     #short-period{
         background-color: var(--pink-card);
     }
@@ -256,10 +297,16 @@ body{
         display: flex;
         flex-direction: column;
         align-items: center;
-        border-radius: 10px;        
+        border-radius: 10px;
+        
+        max-height: 80vh;
+        
 
     }
-
+    .checkboxGroup {
+        border-bottom:1px solid rgba(0, 0, 0, 0.05);
+        padding: 10px;
+    }
     .title-period{
         padding-top: 8px;
 
@@ -277,16 +324,17 @@ body{
     
     }
     .checklist{
-        font-size: 16px;
+        font-size: 18px;
         display: flex;
         flex-direction: column;
-        height: 80%;
+        max-height: 80%;
         width: 100%;
         align-items: flex-start;
         justify-content: space-evenly;
         /* border: 1px solid black; */
         padding: 0 2% 0 2%;
         position: relative;
+        overflow: hidden;
         top: 1.2rem;
         
     }
@@ -305,19 +353,16 @@ body{
 
         margin-left: 10px;
         max-width: 100%;
-    
+
         overflow: hidden;
-    
         display:inline-block;
         text-transform: uppercase;
         float:left;
         height: auto;
-    
     }
     .checkboxGroup input{
         cursor: pointer;
     }
-    
     .newTask{
         padding: 20px;
         width: 100%; 
@@ -330,18 +375,14 @@ body{
         /* opacity: 0.2; */
 
     }
-
-    
     /* styling the input and button */
     .taskInput{
         text-align: center;
         border: none;
         border-bottom: 1px solid black;
         background-color: Transparent;
-        background-repeat:no-repeat;
-        
-        
     }
+    
     .hidde{
         display: none;
     }
@@ -349,40 +390,63 @@ body{
         align-self: center;
         width: 60px;
         height: 60px;
-        margin-top: 0px;
-        border: none;
         border-radius: 50px;
         position: relative;
-        top: 1.1rem;        
+        top: 1.3rem;        
         cursor: pointer;
+        font-family: 'Berkshire Swash', cursive;
+
+        font-size: 5rem;
+        box-shadow: 7px 3px 14px -6px rgba(0,0,0,0.75);
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+        bottom: 100px;
+        text-align: center;
 
     }
+    .buttonAdd p{
+        position: relative;
+        top: -7px;
+    }
+    #short-period .buttonAdd{
+        color: white;
+        background-color: #f561a3;
+    }
+    #medium-period .buttonAdd{
+        color: white;
+        background-color: #3bbcc1;
+    }
+    #long-period .buttonAdd{
+        color: white;
+        background-color: #a0a318;
+    }
+
+ 
+  
 
     header{
         width: 100%;
-        height: 40px;
+        height: 50px;
         background-color:#FFF2E7;
         text-align: center;
-        padding-right: 60vw;
         font-family: 'Berkshire Swash', cursive;
         font-size: 24px;
- 
         display: flex;
         flex-direction: row;
         /* alinhas os itens verticalmente no centro */
         align-items:center;
-        justify-content: space-around;
+        justify-content: space-evenly;
         /* dar um padding para que os elementos se destanciem do topo da pagina */
         padding: 0 5px 0 5px;
     }
     body .invisible{
         display: none;
     }
-
     .modal{
         /* starts invisible */
         display: none;
-
         position: fixed;
         display: flex;
         align-items: center;
@@ -400,9 +464,7 @@ body{
         -webkit-backdrop-filter: blur(5px);
 
     }
-
-    .modalBox{
-        
+    .modalBox{  
         text-align: center;
         background-color: #FFF2E7;
         padding: 4rem;
@@ -415,8 +477,6 @@ body{
         -webkit-backdrop-filter: blur(5px);
         border: 1px solid rgba(31, 31, 31, 0.4);
     }
-
-
     .close {
         position: absolute;
         top: 0;
@@ -447,24 +507,29 @@ body{
         /* padding-right: 150px; */
         display: flex;
         align-items: flex-start;  
-        text-align: center;
         cursor: pointer;
     }
+
     #logoText{
-       justify-self: center;
+        font-weight: 700;
+        margin-left: 1vw;
+        font-weight: bold;
+        align-self: flex-start;
+        justify-self: start;
+        height: 100%;
+        width: 100px;
+    
+       text-align: center;
     }
     .navigation-links{
         display: flex;
         flex-direction: row;
         gap: 2vw;
-        height: 100%;
+        height: 80%;
         width: 50%;
         align-items: center;
         justify-content: center;
         padding-left: 10%;
-        
-
-        /* background-color:#ee710a; */
     }
     /* change the navigation bar style */
     .navigation-links a{
@@ -475,6 +540,7 @@ body{
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    background-color: rgba(0, 0, 0, 0.04);
     }
     /* navigation style hover animation */
     .navigation-links a:hover, #logoText:hover{
@@ -485,14 +551,12 @@ body{
     .nav-social-media{
         font-family: 'Sarala', sans-serif;
         color:black;
-        font-weight: 400;
+        font-weight: 600;
         font-size: 18px;
         border-left: 1px solid var(--secondary--brown3);
         border-right: 1px solid var(--secondary--brown3);
-        border-radius: 50px;
-
+        border-radius: 10px
     }
-
     footer{
         height: 40px;
         width: 100%;
@@ -502,12 +566,9 @@ body{
         justify-content: center;
         
     }
-    
     .text-footer{
         width: 100%;
         height: 100%;
-        
-
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -519,7 +580,5 @@ body{
         text-decoration: none;
         color: black;
     }
-
- 
 
  }
